@@ -1,0 +1,25 @@
+name: InfiniteHunger
+main: com.infamousdiamond.InfiniteHunger.InfiniteHunger
+version: 1.1.1
+website: www.infamousdiamond.com/plugins.html
+commands:
+    IH:
+        description: Shows information on InfiniteHunger
+        permission: IH.Admin
+permissions:
+  IH.Admin:
+  default: op
+  children:
+    IH.Info: true
+    IH.Nodes: true
+    IH.Credits: true
+    IH.IH: true
+  IH.Info:
+    description: Lets the player do /IH Info
+  IH.Nodes:
+    description: Lets the player do /IH Nodes
+  IH.Credits:
+    description: Lets the player do /IH Credits
+  IH.IH:
+    description: Lets the player have infinite hunger
+    default: op
