@@ -3,7 +3,7 @@ main: com.infamousdiamond.InfiniteHunger.InfiniteHunger
 # Version is done like this, Major.Feature Added.Minor.Revision
 version: 1.1.0.3
 author: fishchunks
-website: www.thecodearchive.com
+website: http://www.thecodearchive.com/
 commands:
     IH:
         description: Shows information on InfiniteHunger
