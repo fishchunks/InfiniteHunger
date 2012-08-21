@@ -71,11 +71,11 @@ public class InfiniteHunger extends JavaPlugin{
 				else if(args.length == 1 && (args[0].equalsIgnoreCase("C") || args[0].equalsIgnoreCase("Credits")))
 				{
 					player.sendMessage(ChatColor.DARK_AQUA + "-----------Infinite Hunger-----------");
-					player.sendMessage(ChatColor.AQUA + "Head Programmer: " + ChatColor.WHITE + " Fishchunks");
-					player.sendMessage(ChatColor.AQUA + "Website: " + ChatColor.WHITE + " www.infamousdiamond.com");
-					player.sendMessage(ChatColor.AQUA + "Contact" + ChatColor.WHITE + " Contact me via Dev Bukkit");
-					player.sendMessage(ChatColor.AQUA + "Source Code: " + ChatColor.WHITE + " Available upon request, see www.infamousdiamond.com/plugins.html for full conditions");
-					player.sendMessage(ChatColor.AQUA + "Donate" + ChatColor.WHITE + " Donate via above site, please put your name in the 'additional information' box.");
+					player.sendMessage(ChatColor.AQUA + "Head Programmer: " + ChatColor.WHITE + "Fishchunks");
+					player.sendMessage(ChatColor.AQUA + "Website: " + ChatColor.WHITE + "http://www.thecodearchive.com");
+					player.sendMessage(ChatColor.AQUA + "Contact: " + ChatColor.WHITE + "Contact me via Dev Bukkit");
+					player.sendMessage(ChatColor.AQUA + "Source Code: " + ChatColor.WHITE + "Available upon request, see www.infamousdiamond.com/plugins.html for full conditions");
+					player.sendMessage(ChatColor.AQUA + "Donate: " + ChatColor.WHITE + " Donate via above site, please put your name in the 'additional information' box.");
 					player.sendMessage(ChatColor.DARK_AQUA + "-----------------------------------");
 				}
 			}

@@ -43,7 +43,7 @@ public class IHPlayerListener implements Listener{
 			
 			//If the player does have permission and their hunger is lower than 15 but for some reason it can't restore their hunger it sends the player a message.
 			player.sendMessage(plugin.playerError("Failed to restore your hunger."));
-			this.plugin.logger.severe("Failed to restore the hunger of " + event.getPlayer().getName() + "! Is the plugin up to date?");
+			this.plugin.logger.severe("Failed to restore the hunger of " + event.getPlayer().getName() + "! This is ment for version 1.3.2");
 		}
 		
 	}
