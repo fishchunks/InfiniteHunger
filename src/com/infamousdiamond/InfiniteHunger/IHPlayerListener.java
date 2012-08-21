@@ -26,10 +26,10 @@ public class IHPlayerListener implements Listener{
 		Player player = event.getPlayer();
 		
 		//If the player has the permission 'IH.Admin' or 'IH.IH' it carries on.
-		if(player.hasPermission("IH.Admin") || player.hasPermission("IH.IH"))
+		if(player.hasPermission("IH.IH"))
 		{
 			//If the player's food level is lower that 15 (7 1/2 Bones).
-			if(event.getPlayer().getFoodLevel() < 15)
+			if(player.getFoodLevel() < 15)
 			{
 				//Sets the player's food level to 20 (Full hunger.)
 				event.getPlayer().setFoodLevel(20);
@@ -37,7 +37,7 @@ public class IHPlayerListener implements Listener{
 				
 			}
 			//But if the player does not have permission, just carry on without alerting them.
-		}else if(!player.hasPermission("IH.Admin") || !player.hasPermission("IH.IH"))
+		}else if(!player.hasPermission("IH.IH"))
 		{
 		}else{
 			

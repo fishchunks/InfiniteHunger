@@ -14,7 +14,7 @@ public class InfiniteHunger extends JavaPlugin{
 	//Gets and declares the logger.
 	public final Logger logger = Logger.getLogger("Minecraft");
 	
-	//Allows this class to be referanced as 'plugin'.
+	//Allows this class to be referenced as 'plugin'.
 	public static InfiniteHunger plugin;
 	
 	public void onDisable()
@@ -29,7 +29,7 @@ public class InfiniteHunger extends JavaPlugin{
 		//Happens when the server starts up; Gets the plugin.yml file and alerts the console that it's now enabled.
 		PluginDescriptionFile pdfFile = this.getDescription();
 		this.logger.info(pdfFile.getName() + " Has Been Enabled." + pdfFile.getVersion());
-		//Registered the Playerlistener class with the Plugin Manager. 
+		//Registered the Player listener class with the Plugin Manager. 
 		getServer().getPluginManager().registerEvents(new IHPlayerListener(this), this);	
 	}
 	
@@ -52,31 +52,36 @@ public class InfiniteHunger extends JavaPlugin{
 				player.sendMessage("");
 				
 			//If the word after the command is equal to 'I', 'N' or 'C' shows the player each on respectively.
-			if(args.length == 1 && (args[0].equalsIgnoreCase("I") || args[0].equalsIgnoreCase("Info")))
+			if(args.length == 1)
 			{
-				player.sendMessage(ChatColor.DARK_AQUA + "-----------Infinite Hunger-----------");
-				player.sendMessage(ChatColor.WHITE + "Infinite Hunger provides anyone with the specific permission node to have infinite hunger.");
-				player.sendMessage(ChatColor.DARK_AQUA + "-----------------------------------");
-				player.sendMessage("");
-			}else if(args.length == 1 && (args[0].equalsIgnoreCase("N") || args[0].equalsIgnoreCase("Nodes")))
+				if(args[0].equalsIgnoreCase("I") || args[0].equalsIgnoreCase("Info"))
+				{
+					player.sendMessage(ChatColor.DARK_AQUA + "-----------Infinite Hunger-----------");
+					player.sendMessage(ChatColor.WHITE + "Infinite Hunger provides anyone with the specific permission node to have infinite hunger.");
+					player.sendMessage(ChatColor.DARK_AQUA + "-----------------------------------");
+					player.sendMessage("");
+				}
+				else if(args[0].equalsIgnoreCase("N") || args[0].equalsIgnoreCase("Nodes"))
+				{
+					player.sendMessage(ChatColor.DARK_AQUA + "-----------Infinite Hunger----------");
+					player.sendMessage(ChatColor.AQUA + "IH.IH" + ChatColor.WHITE + " Lets the player have infinite hunger");
+					player.sendMessage(ChatColor.DARK_AQUA + "-----------------------------------");
+					player.sendMessage("");
+				}
+				else if(args.length == 1 && (args[0].equalsIgnoreCase("C") || args[0].equalsIgnoreCase("Credits")))
+				{
+					player.sendMessage(ChatColor.DARK_AQUA + "-----------Infinite Hunger-----------");
+					player.sendMessage(ChatColor.AQUA + "Head Programmer: " + ChatColor.WHITE + " Fishchunks");
+					player.sendMessage(ChatColor.AQUA + "Website: " + ChatColor.WHITE + " www.infamousdiamond.com");
+					player.sendMessage(ChatColor.AQUA + "Contact" + ChatColor.WHITE + " Contact me via Dev Bukkit");
+					player.sendMessage(ChatColor.AQUA + "Source Code: " + ChatColor.WHITE + " Available upon request, see www.infamousdiamond.com/plugins.html for full conditions");
+					player.sendMessage(ChatColor.AQUA + "Donate" + ChatColor.WHITE + " Donate via above site, please put your name in the 'additional information' box.");
+					player.sendMessage(ChatColor.DARK_AQUA + "-----------------------------------");
+				}
+			}
+			else
 			{
-				player.sendMessage(ChatColor.DARK_AQUA + "-----------Infinite Hunger----------");
-				player.sendMessage(ChatColor.AQUA + "IH.Info" + ChatColor.WHITE + " Lets the player do /IH Info");
-				player.sendMessage(ChatColor.AQUA + "IH.Nodes" + ChatColor.WHITE + " Lets the player do /IH Nodes");
-				player.sendMessage(ChatColor.AQUA + "IH.Credits" + ChatColor.WHITE + " Lets the player do /IH Credits");
-				player.sendMessage(ChatColor.AQUA + "IH.Admin" + ChatColor.WHITE + " Lets the player do everything related to Infinite Hunger");
-				player.sendMessage(ChatColor.AQUA + "IH.IH" + ChatColor.WHITE + " Lets the player have infinite hunger");
-				player.sendMessage(ChatColor.DARK_AQUA + "-----------------------------------");
-				player.sendMessage("");
-			}else if(args.length == 1 && (args[0].equalsIgnoreCase("C") || args[0].equalsIgnoreCase("Credits")))
-			{
-				player.sendMessage(ChatColor.DARK_AQUA + "-----------Infinite Hunger-----------");
-				player.sendMessage(ChatColor.AQUA + "Head Programmer: " + ChatColor.WHITE + " Fishchunks");
-				player.sendMessage(ChatColor.AQUA + "Website: " + ChatColor.WHITE + " www.infamousdiamond.com");
-				player.sendMessage(ChatColor.AQUA + "Contact" + ChatColor.WHITE + " Contact me via Dev Bukkit");
-				player.sendMessage(ChatColor.AQUA + "Source Code: " + ChatColor.WHITE + " Available upon request, see www.infamousdiamond.com/plugins.html for full conditions");
-				player.sendMessage(ChatColor.AQUA + "Donate" + ChatColor.WHITE + " Donate via above site, please put your name in the 'additional information' box.");
-				player.sendMessage(ChatColor.DARK_AQUA + "-----------------------------------");
+				player.sendMessage(this.playerError("Something went wrong!"));
 			}
 			//If if does not equal /IH it sends the player a message saying they don't have permission to do the command. (99.9% of the time overridden by Bukkit.)
 			}else
@@ -92,13 +97,13 @@ public class InfiniteHunger extends JavaPlugin{
 	//If the player makes an error it sends them this, plus what ever is in the message, used as a base.
 	public String playerError(String msg)
 	{
-		return ChatColor.DARK_AQUA + "[InfiniteHunger] " + ChatColor.DARK_RED + msg;
+		return ChatColor.DARK_AQUA + "[InfiniteHunger] " + ChatColor.RED + msg;
 	}
 	
 	//If the player does not have permission it sends this error.
 	public String playerNopermError(String msg)
 	{
-		return ChatColor.DARK_AQUA + "[InfiniteHunger] " +ChatColor.DARK_RED + "You do not have permission to do this command.";
+		return ChatColor.DARK_AQUA + "[InfiniteHunger] " +ChatColor.RED + "You do not have permission to do this command.";
 	}
 	
 	//If the plugin ever needs to send the player a message it prefixes the message with this.
